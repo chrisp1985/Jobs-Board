@@ -2,6 +2,12 @@ spring:
   application:
     name: jobsboard-backend
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/jobsboard
+
   datasource:
     url: jdbc:postgresql://localhost:5432/jobsboard
     username: user
@@ -10,7 +16,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:

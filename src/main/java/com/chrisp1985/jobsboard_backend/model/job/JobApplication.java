@@ -1,12 +1,9 @@
 package com.chrisp1985.jobsboard_backend.model.job;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
@@ -17,8 +14,8 @@ import java.time.LocalDate;
 public class JobApplication {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id", nullable = false, updatable = false)
+    private String id;
 
     private String company;
     private String title;
@@ -26,5 +23,5 @@ public class JobApplication {
     private LocalDate appliedDate;
     private String notes;
     private String username;
-    private Long userId;
+    private String userId;
 }
