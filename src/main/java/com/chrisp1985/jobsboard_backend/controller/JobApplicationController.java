@@ -24,8 +24,8 @@ public class JobApplicationController {
 
     @GetMapping
     public List<JobApplication> list(@AuthenticationPrincipal Jwt jwt) {
-        String username = jwt.getClaimAsString("preferred_username"); // or "email" or another field
-        String userId = jwt.getSubject(); // typically the UUID from Keycloak
+        String username = jwt.getClaimAsString("preferred_username");
+        String userId = jwt.getSubject();
         List<JobApplication> jobsFound = jobApplicationService.findJobList(userId);
         log.info("Getting jobs for {}. Found {} jobs.", username, jobsFound.size());
         return jobsFound;
